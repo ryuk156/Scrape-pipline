@@ -3,7 +3,7 @@ import static groovy.io.FileType.FILES
 
 def exec() {
 	def moduleFile = "./module.txt"
-	def indexDir = "../meta-data/" // Needs to be changed according to workspace setting
+	def indexDir = "../../meta-data/" // Needs to be changed according to workspace setting
 	
 	if(fileExists(moduleFile)) {
 		moduleMeta = readFile(moduleFile)
