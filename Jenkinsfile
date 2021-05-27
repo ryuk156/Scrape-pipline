@@ -1,6 +1,4 @@
- def repoLoad
- def repoScrape 
- def repoList
+
 
 
 pipeline{
@@ -9,15 +7,17 @@ pipeline{
     stages{
       stage('Gather module data'){
           steps{
-               repoLoad= load 'Loadrepo.groovy'
-              repoScrape = load 'Scrape.groovy'
-              repoList = repoLoad.fetch()
-
-              dir('meta-data'){
+		  script{
+			   def  repoLoad= load 'Loadrepo.groovy'
+            def  repoScrape = load 'Scrape.groovy'
+            def  repoList = repoLoad.fetch()
+			  
+			   dir('meta-data'){
                   git url : "https://github.com/GooeyTests/TempIndex"
               }
-
-            repoList.each {
+			  
+			  
+			  repoList.each {
 			dir(it) {
 				git url: "https://github.com/Terasology/${it}"
 				repoScrape.exec()
@@ -25,11 +25,21 @@ pipeline{
 
 
 		   }
-             
-             dir('meta-data') {
+			  
+			   dir('meta-data') {
 			repoScrape.push()
 		}
 
+             
+
+			  
+		  }
+		  
+            
+             
+
+            
+            
           }
       }
     }
