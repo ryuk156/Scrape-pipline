@@ -7,6 +7,7 @@ pipeline{
     stages{
       stage('Gather module data'){
           steps{
+		  cleanWs()
 		  script{
 			
 			   def  repoLoad= load 'Loadrepo.groovy'
