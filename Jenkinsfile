@@ -27,7 +27,7 @@ pipeline{
 		   }
 			  
 			   dir('meta-data') {
-			repoScrape.push()
+		
 		}
 
              
