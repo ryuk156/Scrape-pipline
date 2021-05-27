@@ -64,14 +64,3 @@ def exec() {
 	}
 }
 
-def push() {
-	withCredentials([usernamePassword(credentialsId: 'GooeyHub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-    	sh('git config --global user.email "terasology@gmail.com"')
-    	sh('git config --global user.name "GooeyHub"')
-    	sh('git add .')
-    	sh('git commit -m \"Updated Index Data\"')
-    	sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/GooeyTests/TempIndex.git --all')
-	}
-}
-
-return this
