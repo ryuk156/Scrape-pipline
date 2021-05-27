@@ -64,3 +64,16 @@ def exec() {
 	}
 }
 
+
+def push() {
+	withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+    	sh('git config --global user.email "yp15601560@gmail.com"')
+    	sh('git config --global user.name "ryuk156"')
+    	sh('git add .')
+    	sh('git commit -m \"Updated Index Data\"')
+    	sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ryuk156/tera-modules.git --all')
+	}
+}
+
+return this
+
