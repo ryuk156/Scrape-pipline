@@ -13,7 +13,9 @@ pipeline{
             def  repoScrape = load 'Scrape.groovy'
             def  repoList = repoLoad.fetch()
 			  
-			  
+			  dir('meta-data') {
+			git url: 'https://github.com/GooeyTests/TempIndex'
+		}
 			  
 			  repoList.each {
 			dir(it) {
@@ -25,7 +27,7 @@ pipeline{
 		   }
 			  
 			   dir('meta-data') {
-		
+		             repoScrape.push()
 		}
 
              
