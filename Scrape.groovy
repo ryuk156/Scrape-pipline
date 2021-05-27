@@ -71,7 +71,7 @@ def push() {
     	sh('git config --global user.name "GooeyHub"')
     	sh('git add .')
     	sh('git commit -m \"Updated Index Data\"')
-    	sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/GooeyTests/TempIndex.git --all')
+    	sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/GooeyTests/TempIndex.git -f')
 	}
 }
 
