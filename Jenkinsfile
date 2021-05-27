@@ -1,12 +1,17 @@
+ def repoLoad
+ def repoScrape 
+ def repoList
+
+
 pipeline{
     agent any
 
     stages{
       stage('Gather module data'){
           steps{
-              def repoLoad= load 'Loadrepo.groovy'
-              def repoScrape = load 'Scrape.groovy'
-              def repoList = repoLoad.fetch()
+               repoLoad= load 'Loadrepo.groovy'
+              repoScrape = load 'Scrape.groovy'
+              repoList = repoLoad.fetch()
 
               dir('meta-data'){
                   git url : "https://github.com/GooeyTests/TempIndex"
